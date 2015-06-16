@@ -22,33 +22,33 @@ public class dbconnect {
 	               .getConnection("jdbc:postgresql://localhost:5432/Buschfunk",
 	               "postgres", "postgres");
 	       
-	       String nameofharry = "Harry";
-	       String ipofharry = "192.168.0.4";
-	       double longitudeofharry = 45.374635;
-	       double latitudeofharry = 89.928374;
-	       String ipofharry2 = "192.168.0.80";
-	       double longitudeofharry2 = 8.534478;
-	       double  latitudeofharry2 = 49.474235;
-	       boolean logoff;
+//	       String nameofharry = "Harry";
+//	       String ipofharry = "192.168.0.4";
+//	       double longitudeofharry = 45.374635;
+//	       double latitudeofharry = 89.928374;
+//	       String ipofharry2 = "192.168.0.80";
+//	       double longitudeofharry2 = 8.534478;
+//	       double  latitudeofharry2 = 49.474235;
+//	       boolean logoff;
 	       
-	       boolean checkit = checkname(nameofharry, c);
+//	       boolean checkit = checkname(nameofharry, c);
 	       
-	       if(checkit == true){
-	    	   String testlistecreate = create(nameofharry, ipofharry, latitudeofharry, longitudeofharry, c);
-	    	   System.out.println(testlistecreate);
-	    	   
-	    	   
-	    	   System.out.println("Harry bewegt sich - So ein Depp");
-	    	   
-	    	   String testlisteupdate = update(nameofharry, ipofharry2, latitudeofharry2, longitudeofharry2, c);
-	    	   System.out.println(testlisteupdate);
-	    	   
-	    	   logoff = logoff(nameofharry, c);
-	    	   System.out.println(logoff);
-	       }
+//	       if(checkit == true){
+//	    	   String testlistecreate = create(nameofharry, ipofharry, latitudeofharry, longitudeofharry, c);
+//	    	   System.out.println(testlistecreate);
+//	    	   
+//	    	   
+//	    	   System.out.println("Harry bewegt sich - So ein Depp");
+//	    	   
+//	    	   String testlisteupdate = update(nameofharry, ipofharry2, latitudeofharry2, longitudeofharry2, c);
+//	    	   System.out.println(testlisteupdate);
+//	    	   
+//	    	   logoff = logoff(nameofharry, c);
+//	    	   System.out.println(logoff);
+//	       }
 
 	       
-	       c.close();
+//	       c.close();
 
 	   }
 	   

@@ -9,12 +9,20 @@ package websocket;
 
 	@ServerEndpoint("/serverendpointfinal")
 	public class ServerEndpointFinal {
+		
+		String username;
+		String IP;
+		String longi;
+		String lati;
+		
 		@OnOpen
 		public void handleOpen() {
 			 System.out.println("client is now connected...");
 		}
 		@OnMessage
 		public String handleMessage(String message) {
+			
+			if(message=="")
 			
 			System.out.println("receive from client: " + message);
 			String replyMessage = "echo "+ message;
@@ -29,6 +37,16 @@ package websocket;
 			
 			return replyMessage + "\n" + harrysliste;
 		}
+		
+//		public String handleMessage(String username, String IP, String latitude, String longitude){
+//			this.username = username;
+//			this.IP = IP;
+//			this.lati = latitude;
+//			this.longi = longitude;
+//			
+//			return username + " ist angemeldet.";
+//		}
+		
 		@OnClose
 		public void handleClose() {
 			System.out.println("client is now disconnected...");
