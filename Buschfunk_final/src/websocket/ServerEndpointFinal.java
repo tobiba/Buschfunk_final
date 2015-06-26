@@ -14,6 +14,10 @@ package websocket;
 		String IP;
 		String longi;
 		String lati;
+		String Fall;
+		String[] parts = new String[5];
+		String nachricht;
+		
 		
 		@OnOpen
 		public void handleOpen() {
@@ -22,11 +26,18 @@ package websocket;
 		@OnMessage
 		public String handleMessage(String message) {
 			
-		//	if(message=="")
+		parts = message.split("-");
+		
+		Fall = parts[0];
+
+		
+		if(Fall.equals("Chat")) {
 			
-			System.out.println("receive from client: " + message);
-			String replyMessage = "echo "+ message;
-			System.out.println("send to client: " +replyMessage);
+			nachricht = parts[1];
+			
+			System.out.println("receive from client: " + nachricht);
+			String replyMessage = "Chatnachricht lautet:  "+ nachricht;
+			System.out.println("send to client: " + replyMessage);
 			
 			String harrysliste = "[{\"id\": \"1\", \"name\": \"Gisela\", \"entfernung\": \"50\"},"
 					+ "{\"id\": \"2\", \"name\": \"Elfriede\", \"entfernung\": \"100\"},"
@@ -36,6 +47,27 @@ package websocket;
 			
 			
 			return replyMessage + "\n" + harrysliste;
+		} 
+		
+		else if (Fall.equals("Anmelden")){
+			
+			username = parts[1];
+			IP = parts[2];
+			longi = parts[3];
+			lati = parts[4];
+			
+		
+			System.out.println("receive from client: " + message);
+			String replyMessage = "Username: "+ username + ", IP: " + IP + ", Long: " + longi + ", Lat: " + lati + ".";
+			System.out.println("send to client: " + replyMessage);
+			
+			return replyMessage;
+		} 
+			else {
+				System.out.println("error -- receive from client: " + message);
+				System.out.println(Fall + "--" + username + "--" + IP + "--" + longi + "--" + lati);
+				return "Fehler"; 
+			}
 		}
 		
 //		public String handleMessage(String username, String IP, String latitude, String longitude){

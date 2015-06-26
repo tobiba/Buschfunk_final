@@ -17,12 +17,12 @@
         <br>
        
         	<input id="textUsername" type="text">
-        	<input onclick="sendMessage();" value="Anmelden" type="button">
-        <!--  <form>	<input id="textIP" type="text">
+        	<input id="textIP" type="text">
         	<input id="textLat" type="text">
         	<input id="textLong" type="text">
+        	<input onclick="sendMessage();" value="Anmelden" type="button">
         	
-        </form> -->
+        
         
         <script type="text/javascript">
     		var webSocket = new WebSocket("ws://localhost:8080/Buschfunk_final/serverendpointfinal");
@@ -44,15 +44,20 @@
         	
         	function sendMessage() {
         		if (textMessage.value!="") {
-	        		webSocket.send(textMessage.value);
-	        		messagesTextArea.value += "Send to Server ==> " + textMessage.value+"\n";
+        			var chatmsg = "Chat-" + textMessage.value;
+	        		webSocket.send(chatmsg);
+	        		messagesTextArea.value += "Send to Server ==> " + chatmsg +"\n";
 	        		textMessage.value="";
         		} 
         		
-        		else if (this.textUsername.value!="") {
-	        		webSocket.send(textUsername.value);
-	        		messagesTextArea.value += "Send to Server ==> " + textUsername.value+"\n";
+        		else if (textUsername.value!="") {
+        			var anmeldung = "Anmelden-" + textUsername.value + "-" + textIP.value + "-" + textLat.value + "-" + textLong.value;
+	        		webSocket.send(anmeldung);
+	        		messagesTextArea.value += "Send to Server ==> " + anmeldung +"\n";
 	        		textUsername.value="";
+	        		textIP.value="";
+	        		textLat.value="";
+	        		textLong.value="";
         		} else webSocket.close();
         	}	 
         		
