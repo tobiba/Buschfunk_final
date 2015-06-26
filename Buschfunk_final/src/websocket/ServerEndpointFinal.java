@@ -22,7 +22,7 @@ package websocket;
 		@OnMessage
 		public String handleMessage(String message) {
 			
-			if(message=="")
+		//	if(message=="")
 			
 			System.out.println("receive from client: " + message);
 			String replyMessage = "echo "+ message;
